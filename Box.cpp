@@ -15,7 +15,7 @@ using namespace std;
 ******************************************************************************/
 
 Box::Box()
-{   setHeight(1);
+{   setHeight(10);
     setWidth(1);
     setLength(1);
 }
