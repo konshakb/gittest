@@ -1,0 +1,173 @@
+Classes:
+
+String class has been our first example.
+The string class creates string objects.
+
+Class       string object       string literal
+
+string      city                "Lexington"
+string      state               "Kentucky"
+
+The string includes member functions:
+city.length() = 9   state.length() = 8
+
+Great now what?
+Create your own class!
+
+class ClassName  // Class declaration begins with class
+                    and the name is capitalized
+{
+    Declaration for class member variables and member functions
+    go here.
+
+};  //don't forget the semicolon yo
+
+_______________________________________________________________
+
+Our class will be a circle--member variable will hold radius 
+and two member functions:  setRadius  and getArea
+
+____________________________________________________________
+
+class Circle
+{   private:            //access specifier (public or private)
+        double radius;  //semicolon
+
+    public:
+        void setRadius(double r)
+        {   radius = r; }
+
+        double getArea()
+        {return 3.14 * pow(radius, 2); }
+}
+Objects are instnace of a class.  They are created with a definition
+statement after the class has been declared.  
+2 objects in Circle class:
+Circle circle1;  access the object circle1.setRadius(1.0) set r to 1
+       circle2;                    circle2.setRadius(2.5) set r to 2.5
+
+time for the whole program!  Program7-1
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+//Declare that circle class yo!
+
+class Circle  //no semicolon here
+{  private:
+    double radius;
+
+   public:  
+    void setRadius(double r)
+    {   radius = r;  }
+
+    double getArea()
+    {   return 3.14 * pow(radius, 2); } //semi and closed bracket
+}; //dont forget to close and semicolin
+
+int main()
+{
+    //define the circle objects
+    Circle circle1;
+           circle2;
+
+//Now call the setradius for each circle easy easy
+circle1.setRadius(1);  /sets radius to 1
+circle2.setRadius(2.5) //2.5  //MUTATOR--modifiesthe contents of variable
+
+cout <<  circle1.getArea()  //uses the class variable known as ACCESSOR
+cout << circle2.getArea()  //same
+
+Program output-----3.14 and 19.625
+
+Define member functions (outside of class)
+
+void Circle::setRadius(double r)
+{   radius = r;
+}                   //::scope resolution operator
+
+ Review Program 7-3)  page 420
+
+Checkpoint questions:
+1.  void InvItem::setOnHand(int units)  //highlighting correct scope res. operator
+2.  Private member variable can be accessed by PUBLIC MEMBER FUNCTIONS
+3.  soap.setOnHand(20);  soap is object of class inventory; call soh member function
+4.  Ouch!  the private variables are month, date and year,
+    then the private functions return getmonth () return month...
+p 423
+
+7.6 Constructors:
+Automatically called when a class object is created.
+Looks like a function but its name must be the name of the class.
+
+So in class Circle the constructor whould be Circle() by default;
+
+If declared in class it would be public: Circle();
+If using Prototype, do this outside of class:   Circle::Circle()
+Whatever value this constructor holds is the default value of the function.
+So you could set radius by default to 1, and if the setRadius
+function isn't called, set to 1
+
+Overloading constructors:
+two constructors with same name must have different parameters;
+Default constructor has no arguments and must be included
+
+Checkpoint questions p 430
+
+7.5  Usually use a constructor to initialize the member variables
+7.6  Constructor has same name as class
+7.7  Constructor with no arguments is the default constructor
+7.8  Class object defined with parameter of 25:
+     Classact Sally(25)
+7.9  True:  constructor can be overloaded as long as parameter 
+     values are unique
+7.10 False--Constructor with no paramater list (default)
+     and a overloaded constructor with default parameters 
+7.11 destructor functions start with tilde character (~)
+7.12 False.  Only one destructor
+7.13 50, 50, 20
+7.14 4, 7, goodbye, goodbye (2 functions, 2 destructors
+
+************************************************************
+P 442 checkpoint.  private functions, passing objects
+
+7.15 Private member functions can only be called by functions
+     of the same class
+7.16 When objects are passed to a function, a copy is made if
+     the object is passed by value;
+7.17 passed by reference--
+7.18 false--returned as object
+7.19 false--best as constant reference
+
+*******************************************************
+Object composition
+Concept check--sometimes you need a member variable from another
+class
+2 classes:  one class Rectangle, one Class Carpet
+the Carpet class calls on the member Rectangle size 
+
+7.20 Map class has a member variable named position instance of
+     location class.  return position.getLatitude();
+7.21 Class Circle
+     {
+     private:  double radius
+     public:  void setRadius (double r)
+            { radius = r}
+              double getArea()
+            { ( return 3.14 * radius * radius) ;
+7.22 Class Pizza  //this will include the Circle class
+    private:  double price, 
+              Circle size;
+    public:  void setPrice (double p)
+              {price = p}, 
+             setSize (double r)
+              {size.setRadius(r)}, 
+              double costPersqIn()
+               {return (price/ size.getArea();}
+7.23 Pizza mypizza
+    mypizza.size(14)
+    mypizza.price(11.99)
+    mypizza.costPersqIn()
+
+ 
