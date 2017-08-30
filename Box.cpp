@@ -66,7 +66,7 @@ int main()
     Box box3;
     double height, width, length;
 
-    cout << "What's the height?" << endl;
+    cout << "What's the height??" << endl;
     cin >> height;
     box3.setHeight(height);
     cout << "What's the width?" << endl;
